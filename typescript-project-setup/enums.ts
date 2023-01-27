@@ -10,5 +10,4 @@ enum ROLE1 {
     AUTHOR
 };
 
-// test
 const role: ROLE = 2;
