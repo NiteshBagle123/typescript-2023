@@ -1,6 +1,6 @@
-function add (num1: number, num2: number, showResult: boolean) {
+function add (num1: number, num2: number, showResult: boolean, phase: string) {
     if(showResult) {
-        console.log('Print data', num1 + num2);
+        console.log(phase, num1 + num2);
         return num1 + num2;
     }
     return num1 + num2;
@@ -8,5 +8,5 @@ function add (num1: number, num2: number, showResult: boolean) {
 
 const num1 = 5;
 const num2 = 2.8;
-const printResult = false;
-const response = add(num1, num2, printResult);
+const printResult = true;
+const response = add(num1, num2, printResult, 'Print data');

@@ -1,11 +1,11 @@
-function add(num1, num2, showResult) {
+function add(num1, num2, showResult, phase) {
     if (showResult) {
-        console.log('Print data', num1 + num2);
+        console.log(phase, num1 + num2);
         return num1 + num2;
     }
     return num1 + num2;
 }
 var num1 = 5;
 var num2 = 2.8;
-var printResult = false;
-var response = add(num1, num2, printResult);
+var printResult = true;
+var response = add(num1, num2, printResult, 'Print data');
