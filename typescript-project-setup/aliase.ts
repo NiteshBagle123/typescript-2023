@@ -1,5 +1,5 @@
 type Combinal = string | number;
-type ConversionDescriptor = 'ADMIN' | 'USER' | 'SUPER_ADMIN'
+type ConversionDescriptor = 'ADMIN' | 'USER' | 'SUPER_ADMIN';
 const person: {
     name: Combinal,
     age: Combinal,
