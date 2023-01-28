@@ -99,5 +99,15 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
+  },
+  "exclude": [
+    "node_modules", // wouldn't need 
+    "*.lock.json"
+  ],
+  "include": [
+    "setup.ts"
+  ],
+  "files": [
+    "setup.ts"
+  ]
 }
