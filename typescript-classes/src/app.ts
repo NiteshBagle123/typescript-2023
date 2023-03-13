@@ -1,6 +1,8 @@
-interface Greetable {
-    name: string;
-    greet(phrase: string): void
+interface Named {
+    readonly name: string;
+}
+interface Greetable extends Named {
+    greet(phrase: string): void;
 }
 
 class Person implements Greetable {
@@ -8,9 +10,10 @@ class Person implements Greetable {
     constructor(n: string) {
         this.name = n;
     }
-    greet(phrase: string): void {
-        console.log(phrase);
+    greet(phrase: string) {
+        console.log(phrase, this.name);
     }
 }
-const personObj = new Person('Nitesh');
+let personObj: Greetable;
+personObj = new Person('Nitesh');
 personObj.greet('Hello Nitesh!');
