@@ -30,8 +30,8 @@ console.log(mergedObject);
 interface Lengthy {
     length: number
 }
-function countAndPrint<T extends Lengthy>(ele: T): [T, string] {
-    let description = 'Got no element'
+function countAndPrint<T extends Lengthy>(ele: T) {
+    let description = 'Got no element';
     if(ele.length){
         description = `Got element with count: ${ele.length}`;
     }
@@ -73,4 +73,24 @@ numberStorage.addItem(100);
 numberStorage.addItem(2);
 numberStorage.removeElement(100);
 console.log('print numberStorage', numberStorage.getItems());
+
+// generics utility types
+// Partial type is optional types wherever we define
+interface CourseGoal {
+    title: string;
+    description: string;
+    completionUntil: Date;
+}
+
+function createCourseGoal(title: string, description: string, completionUntil: Date): CourseGoal {
+    let courseGoal: Partial<CourseGoal> = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completionUntil = completionUntil;
+    return courseGoal as CourseGoal;
+}
+
+const nameType: Readonly<string[]> = ['Nitesh', 'Shraddha'];
+// nameType.push();
+// nameType.pop();
 
