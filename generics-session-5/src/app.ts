@@ -38,3 +38,10 @@ function countAndPrint<T extends Lengthy>(ele: T): [T, string] {
     return [ele, description];
 }
 console.log(countAndPrint(['Sports', 'Cooking']));
+
+// custom genetic function 3
+function extractAndConvert<T extends object, U extends keyof T>(obj: T, key: U) {
+    return obj[key];
+}
+
+console.log(extractAndConvert({ name: 'Nitesh' }, 'name'));
