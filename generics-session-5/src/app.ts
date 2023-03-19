@@ -45,3 +45,32 @@ function extractAndConvert<T extends object, U extends keyof T>(obj: T, key: U) 
 }
 
 console.log(extractAndConvert({ name: 'Nitesh' }, 'name'));
+
+// generic classes
+class DataStorage<T> {
+    private data: T[] = [];
+    addItem(item: T){
+        this.data.push(item);
+    }
+    removeElement(item: T) {
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+
+    getItems() {
+        return [...this.data];
+    }
+}
+
+const textStorage = new DataStorage<string>();
+textStorage.addItem('Nitesh');
+textStorage.addItem('Shraddha');
+textStorage.removeElement('Nitesh');
+console.log('Print textStorage', textStorage.getItems());
+
+const numberStorage = new DataStorage<number>();
+numberStorage.addItem(1);
+numberStorage.addItem(100);
+numberStorage.addItem(2);
+numberStorage.removeElement(100);
+console.log('print numberStorage', numberStorage.getItems());
+
