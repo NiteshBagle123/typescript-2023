@@ -16,11 +16,12 @@ promise.then(() => {
 })
 
 // custom generic function
-function mergeObjects<T, U>(objA: T, objB: U) {
+function mergeObjects<T extends object, U extends object>(objA: T, objB: U) {
     return {
         ...objA,
         ...objB
     }
 };
+
 const mergedObject = mergeObjects({ name: 'Nitesh'}, { age: 27 });
 console.log(mergedObject);
