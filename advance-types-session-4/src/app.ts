@@ -1,7 +1,13 @@
 // guards type
 type Combinable1 = string | number;
+
+// function overload
+// function add(a: number, b: number): number;
+// function add(a: string, b: number): string;
+// function add(a: number, b: string): string;
+// function add(a: string, b: string): string;
 function add(a: Combinable1, b: Combinable1) {
-    if(typeof a === 'string' || typeof b === 'string'){
+    if(typeof a === 'string' || typeof b === 'string') {
         return Number(a)+ Number(b);
     }
     return a + b;
@@ -85,7 +91,56 @@ function moveAnimal(animal: Animal) {
     if(animal.type === 'horse') {
         return animal.runningSpeed
     }
+    return '';
 }
 
 moveAnimal({ type: 'bird', flyingSpeed: 10 });
 moveAnimal({ type: 'horse', runningSpeed: 100 });
+
+// alternate 1
+const inputText = <HTMLInputElement>document.getElementById('input-element')!;
+
+// alternate 2
+const inputText1 = document.getElementById('input-element')! as HTMLInputElement;
+inputText.value = 'Hi, There!';
+
+// alternate 3
+const inputText2 = document.getElementById('input-element') as HTMLInputElement;
+if(inputText2) {
+    inputText2.value = 'Hi, There!';
+}
+
+// alternate 4
+const inputText3 = document.getElementById('input-element');
+
+if(inputText3) {
+    (inputText3 as HTMLInputElement).value = 'Hi, There';
+}
+
+
+// index properties
+interface ErrorContainer {
+    [key: string]: string  
+}
+
+const errorMessage: ErrorContainer = {
+    email: 'Not a valid email'
+}
+
+
+// optional chaining
+const fetchedUserData = {
+    id: '1',
+    name: 'Nitesh Bagle',
+    job: {
+        title: 'Senior Engineer',
+        Description: 'Software Developer'
+    }
+}
+
+console.log(fetchedUserData?.job?.Description);
+
+// nullish coalescing
+const userInput = '';
+const storedData = userInput ?? 'DEFAULT';
+console.log('Print storedData', storedData);
