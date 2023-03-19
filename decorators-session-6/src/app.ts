@@ -14,6 +14,7 @@
 // const person = new Person();
 
 function Logger(logString: string) {
+   console.log('LOGGER_FACTORY');
    return function(constructor: Function) {
     console.log('constructor', constructor);
     console.log('logString', logString);
@@ -21,6 +22,7 @@ function Logger(logString: string) {
 }
 
 function withTemplate(template: string, hookId: string) {
+    console.log('TEMPLATE_FACTORY');
     return function(_: Function) {
         const hookElement = document.getElementById('app');
         if(hookElement){
@@ -31,7 +33,7 @@ function withTemplate(template: string, hookId: string) {
     }
 }
 
-// @Logger('LOGGING-STRING')
+@Logger('LOGGING-STRING')
 @withTemplate('<h1>My Person</h1>', 'app')
 class Person {
     name = 'Nitesh';
