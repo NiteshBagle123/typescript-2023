@@ -43,3 +43,38 @@ class Person {
 }
 
 const person = new Person();
+
+function log(target: any, propertyName: string) {
+    console.log('LOG_FACTORY');
+    console.log('target', target);
+    console.log('propertyName', propertyName);
+}
+
+function log2(target: any, name: string, descriptor: PropertyDecorator) {
+    console.log('ACCESSOR_FACTORY');
+    console.log(target);
+    console.log(name);
+    console.log(descriptor);
+}
+
+class Product {
+    @log
+    title: string;
+    private price: number;
+
+    set priceVal(val: number) {
+        if(val) {
+            this.price = val;
+        } else {
+            throw new Error('Invalid price')
+        }
+    }
+    constructor(t: string, p: number) {
+        this.title = t;
+        this.price = p;
+    }
+    
+    getPriceWithTax(tax: number) {
+        return this.price * (1 + tax);
+    }
+}
